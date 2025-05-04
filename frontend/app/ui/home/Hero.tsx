@@ -5,7 +5,7 @@ import { BiDownArrow } from 'react-icons/bi';
 
 export default function Hero() {
   return (
-    <section className="relative w-full">
+    <section className="relative w-full mx-auto bg-gray-900">
       <div className="absolute inset-0">
         <Image
           src={heroAsset}
@@ -17,7 +17,7 @@ export default function Hero() {
         />
       </div>
       <div className="relative z-10 flex flex-col min-h-screen py-36 px-24">
-        <div className="max-w-2xl py-36">
+        <div className="max-w-7xl py-36">
           <h1 className="text-5xl font-bold text-white mb-2">
             Building Wealth
           </h1>

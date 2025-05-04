@@ -59,21 +59,26 @@ export default function Navbar() {
 
   // Handle scroll event to change navbar appearance
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+  let ticking = false;
 
-    window.addEventListener("scroll", handleScroll);
+  const handleScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 10);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
 
-    // Clean up event listener
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
+ 
 
   return (
     <nav

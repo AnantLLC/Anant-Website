@@ -1,46 +1,55 @@
 import React from "react";
 import Image from "next/image";
+import financial from "../../images/homepage/financial.svg";
+import health from "../../images/homepage/health.png";
+import life from "../../images/homepage/life.svg";
+import annuities from "../../images/homepage/annuities.svg";
+import education from "../../images/homepage/education.svg";
+import estate from "../../images/homepage/estate.svg";
+import tax from "../../images/homepage/tax.svg";
+import mortgage from "../../images/homepage/mortgage.svg";
+
 
 const serviceItems = [
   {
     title: "Financial Planning",
     description: "Strategic money management tailored to you.",
-    icon: "/icons/web-dev.svg",
+    icon: financial,
   },
   {
     title: "Health Insurance",
     description: "Affordable coverage to protect your family",
-    icon: "/icons/mobile-app.svg",
+    icon: health,
   },
   {
     title: "Life Insurance",
     description: "Protect your loved ones with flexible options.",
-    icon: "/icons/design.svg",
+    icon: life,
   },
   {
     title: "Annuities",
     description: "Create guaranteed income streams for retirement.",
-    icon: "/icons/cloud.svg",
+    icon: annuities,
   },
   {
     title: "Education Planning",
     description: "Use 529 plans to fund your child's future.",
-    icon: "/icons/analytics.svg",
+    icon: education,
   },
   {
     title: "Estate Planning",
     description: "Ensure your legacy is passed down smoothly.",
-    icon: "/icons/security.svg",
+    icon: estate,
   },
   {
     title: "Tax Diversification",
     description: "Work with our partners to minimize your tax impact.",
-    icon: "/icons/ai.svg",
+    icon: tax,
   },
   {
     title: "Mortgage Protection",
     description: "Protect your home and family with peace of mind.",
-    icon: "/icons/consulting.svg",
+    icon: mortgage,
   },
 ];
 
@@ -57,10 +66,9 @@ export default function Services() {
             key={index}
             className="bg-primary rounded-lg shadow-md p-6 transition-transform duration-300 hover:transform hover:scale-105 flex flex-col items-center text-center"
           >
-            <div className="w-16 h-16 mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-              {/* Replace with actual icons when available */}
+            <div className="w-16 h-16 mb-4 rounded-full flex items-center justify-center">
               <div className="text-blue-600 text-2xl font-bold">
-                <Image src={service.icon} alt={service.title} width={24} height={24} />
+                <Image src={service.icon} alt={service.title} width={48} height={48} />
               </div>
             </div>
             <h3 className="text-xl font-semibold mb-2 text-white">{service.title}</h3>
