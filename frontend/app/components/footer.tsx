@@ -35,10 +35,11 @@ interface QuickLink {
 }
 const quickLinks: QuickLink[] = [
   { title: "About Us", url: "#" },
-  { title: "Our Team", url: "#" },
+  { title: "Our Services", url: "#" },
   { title: "Internships", url: "#" },
-  { title: "Testimonials", url: "#" },
-  { title: "Contact", url: "#" },
+  { title: "Meet Our Team", url: "#" },
+  { title: "Schedule A Call", url: "#" },
+  { title: "Contact Us", url: "#" },
 ];
 
 
@@ -60,7 +61,7 @@ export default function Footer() {
   return (
     <footer className="bg-zinc-900 p-16 mx-auto text-white">
       <div className="grid lg:grid-cols-3 md:grid-cols-2">
-        <div className="flex lg:flex md:flex-col  text-center justify-center flex-col items-center  p-3">
+        <div className="flex flex-col items-center justify-center text-center p-8 pl-20 px-6 lg:px-12">
           <Image className="w-32" src={logo} alt="anant llc logo" />
           <h3 className="mb-4 max-w-2xs text-sm font-semibold text-center">
             Your trusted partner in wealth management and financial solutions.

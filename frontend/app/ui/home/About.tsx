@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function About() {
@@ -8,16 +9,14 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Image column */}
           <div className="relative h-96 rounded-xl w-full">
-            <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-400">Image placeholder</span>
-            </div>
+            
             {/* Uncomment when you have actual images */}
-            {/* <Image 
-                  src={tip.image} 
-                  alt={tip.title}
+            <Image 
+                  src={"/AboutUs.jpg"} // Replace with your image path
+                  alt={"About Us Image"}
                   fill
                   className="object-cover"
-                /> */}
+                />
           </div>
 
           {/* Content column */}
@@ -36,8 +35,8 @@ export default function About() {
 
             <div className="pt-4">
               <Link href="/about" passHref>
-                <button className="px-6 py-3 bg-[#C4A35A] text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-300 inline-flex items-center">
-                  Learn More About Us
+              <button className="px-6 py-3 bg-[#C4A35A] text-white font-medium rounded-md transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center">
+              Learn More About Us
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 ml-2"

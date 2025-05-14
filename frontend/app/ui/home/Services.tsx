@@ -64,10 +64,10 @@ export default function Services() {
         {serviceItems.map((service, index) => (
           <div 
             key={index}
-            className="bg-primary rounded-lg shadow-md p-6 transition-transform duration-300 hover:transform hover:scale-105 flex flex-col items-center text-center"
+            className="bg-[#333333] rounded-lg shadow-md p-6 transition-transform duration-300 hover:transform hover:scale-105 flex flex-col items-center text-center"
           >
             <div className="w-16 h-16 mb-4 rounded-full flex items-center justify-center">
-              <div className="text-blue-600 text-2xl font-bold">
+              <div className="text-[#333333] text-2xl font-bold">
                 <Image src={service.icon} alt={service.title} width={48} height={48} />
               </div>
             </div>

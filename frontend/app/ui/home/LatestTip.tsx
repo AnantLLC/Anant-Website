@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 
 // Sample tip data - in a real application, this would come from an API or CMS
@@ -28,7 +27,7 @@ export default function LatestTip() {
       <div className="max-w-6xl mx-auto">
         {/* Section headers */}
         <div className="text-center mb-12">
-          <p className="text-sm font-medium text-blue-600 uppercase tracking-wider mb-2">OUR SOCIAL MEDIA</p>
+          <p className="text-sm font-medium text-[#C4A35A] uppercase tracking-wider mb-2">OUR SOCIAL MEDIA</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Latest Tips</h2>
         </div>
         
@@ -54,7 +53,7 @@ export default function LatestTip() {
               <div className="p-6">
                 {/* Category and date */}
                 <div className="flex justify-between items-center mb-3 text-sm">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium">
+                  <span className="px-3 py-1 bg-amber-100 text-[#C4A35A] rounded-full font-medium">
                     {tip.category}
                   </span>
                   <span className="text-gray-500">
@@ -64,13 +63,13 @@ export default function LatestTip() {
                 
                 {/* Title */}
                 <h3 className="text-xl font-semibold mb-4 text-gray-800 line-clamp-2">
-                  <Link href={`/tips/${tip.slug}`} className="hover:text-blue-600 transition-colors duration-200">
+                  <Link href={`/tips/${tip.slug}`} className="hover:text-[#C4A35A] transition-colors duration-200">
                     {tip.title}
                   </Link>
                 </h3>
                 
                 {/* Read more link */}
-                <Link href={`/tips/${tip.slug}`} className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
+                <Link href={`/tips/${tip.slug}`} className="inline-flex items-center text-[#C4A35A] font-medium hover:text-[#C4A35A]">
                   Read More
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />

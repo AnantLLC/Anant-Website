@@ -117,12 +117,12 @@ export default function Navbar() {
           </div>
 
           {/* Search Bar */}
-          <div className="hidden lg:flex items-center">
+          {/* <div className="hidden lg:flex items-center">
             <div
               className={`relative rounded-md shadow-sm ${
                 scrolled ? "bg-gray-100" : "bg-white bg-opacity-20"
               }`}
-            >
+            > */}
               {/* <input
                 type="text"
                 className={`block w-full pl-4 pr-10 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
@@ -132,7 +132,7 @@ export default function Navbar() {
                 }`}
                 placeholder="Search..."
               /> */}
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              {/* <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                 <svg
                   className={`h-5 w-5 ${
                     scrolled ? "text-gray-400" : "text-white"
@@ -150,7 +150,7 @@ export default function Navbar() {
                 </svg>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
