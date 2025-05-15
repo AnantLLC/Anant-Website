@@ -17,7 +17,7 @@ export default function Hero() {
         />
       </div>
       <div className="relative z-10 flex flex-col min-h-screen py-36 px-24">
-        <div className="max-w-7xl py-36">
+        <div className="w-full py-36">
           <h1 className="text-5xl font-bold text-white mb-2">
             Building Wealth
           </h1>

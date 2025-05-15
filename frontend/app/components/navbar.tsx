@@ -88,10 +88,10 @@ export default function Navbar() {
           : "bg-transparent py-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* <div className="flex justify-between items-center"> */}
           <Link href="/" className="flex items-center">
-            <div className="h-32 w-32 relative">
+            <div className="h-30 w-45 relative">
               <Image
                 src={logo}
                 alt="Anant Logo"
@@ -197,7 +197,7 @@ export default function Navbar() {
               )}
             </button>
           </div>
-        </div>
+        {/* </div> */}
       </div>
 
       {/* Mobile menu */}
