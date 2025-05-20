@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import cc from "../images/credit_card.jpg";
-import logo from "../images/logo/logo.svg";
+import logo from "../../public/logo.svg";
 interface SocialMediaInsight {
   title: string;
   description: string;

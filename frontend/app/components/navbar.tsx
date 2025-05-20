@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../images/logo/logo.svg";
+import logo from "../../public/logo.svg"; // Adjust the path to your logo image
 
 /**
  * 
@@ -220,7 +220,7 @@ export default function Navbar() {
           ))}
 
           {/* Mobile search */}
-          <div className="px-3 py-2">
+          {/* <div className="px-3 py-2">
             <div className="relative rounded-md shadow-sm">
               <input
                 type="text"
@@ -243,7 +243,7 @@ export default function Navbar() {
                 </svg>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
