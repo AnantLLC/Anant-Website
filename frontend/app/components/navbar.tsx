@@ -4,26 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../images/logo/logo.svg";
 
-/**
- * 
- * @returns 
- *       <Link href="/about" className={`font-medium ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-gray-200'} transition-colors duration-200`}>
-              About
-            </Link>
-            <Link href="/services" className={`font-medium ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-gray-200'} transition-colors duration-200`}>
-              Our Services
-            </Link>
-            <Link href="/internships" className={`font-medium ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-gray-200'} transition-colors duration-200`}>
-              Internships
-            </Link>
-            <Link href="/team" className={`font-medium ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-gray-200'} transition-colors duration-200`}>
-              Meet Our Team
-            </Link>
-            <Link href="/schedule" className={`font-medium ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-gray-200'} transition-colors duration-200`}>
-              Schedule a Call
-            </Link>
- * 
- */
 
 interface NavItems {
   name: string;
@@ -33,20 +13,20 @@ interface NavItems {
 const navitems: NavItems[] = [
   {
     name: "About",
-    href: "#",
+    href: "#about",
   },
-  {
-    name: " Our Services",
-    href: "#",
-  },
-  {
-    name: "Internships",
-    href: "#",
-  },
-  {
-    name: "Meet Our Team",
-    href: "#",
-  },
+  // {
+  //   name: " Our Services",
+  //   href: "#",
+  // },
+  // {
+  //   name: "Internships",
+  //   href: "#",
+  // },
+  // {
+  //   name: "Meet Our Team",
+  //   href: "#",
+  // },
   {
     name: "Schedule a Call",
     href: "#",
@@ -59,26 +39,38 @@ export default function Navbar() {
 
   // Handle scroll event to change navbar appearance
   useEffect(() => {
-  let ticking = false;
+    let ticking = false;
 
-  const handleScroll = () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 10);
-        ticking = false;
-      });
-      ticking = true;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 10);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    // Set initial state based on scroll position
+    setScrolled(window.scrollY > 10);
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  function handleScrollToSection(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    if (!href.startsWith("#")) return
+
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  };
+  }
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
-
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, []);
-
- 
 
   return (
     <nav
@@ -90,7 +82,7 @@ export default function Navbar() {
     >
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* <div className="flex justify-between items-center"> */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex justify-center items-center">
             <div className="h-30 w-45 relative">
               <Image
                 src={logo}
@@ -105,6 +97,7 @@ export default function Navbar() {
               <Link
                 key={nav.name}
                 href={nav.href}
+                onClick={(e) => handleScrollToSection(e, nav.href)}
                 className={`font-medium ${
                   scrolled
                     ? "text-white hover:text-blue-600"
@@ -209,6 +202,7 @@ export default function Navbar() {
             <Link
               key={nav.name}
               href={nav.href}
+              onClick={(e) => handleScrollToSection(e, nav.href)}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 scrolled
                   ? "text-white hover:text-blue-600"

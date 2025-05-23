@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function About() {
   return (
-    <section className="relative py-28 px-4 md:px-12 bg-white">
+    <section id='about' className="relative py-28 px-4 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Image column */}
