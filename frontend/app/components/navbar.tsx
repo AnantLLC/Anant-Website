@@ -15,10 +15,10 @@ const navitems: NavItems[] = [
     name: "About",
     href: "#about",
   },
-  // {
-  //   name: " Our Services",
-  //   href: "#",
-  // },
+  {
+    name: " Our Services",
+    href: "#services",
+  },
   // {
   //   name: "Internships",
   //   href: "#",
@@ -99,11 +99,7 @@ export default function Navbar() {
                 key={nav.name}
                 href={nav.href}
                 onClick={(e) => handleScrollToSection(e, nav.href)}
-                className={`font-medium ${
-                  scrolled
-                    ? "text-white hover:text-blue-600"
-                    : "text-white hover:text-gray-200"
-                } transition-colors duration-200`}
+                className={`font-medium text-white hover:text-[#C4A35A] transition-colors duration-200`}
               >
                 {nav.name}
               </Link>

@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+// import Link from 'next/link'
 
 export default function About() {
   return (
-    <section id='about' className="relative py-28 px-4 md:px-12 bg-white">
+    <section id='about' className="relative py-28 px-4 md:px-12 bg-blue-50">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Image column */}
@@ -34,7 +34,7 @@ export default function About() {
             </p>
 
             <div className="pt-4">
-              <Link href="/about" passHref>
+              {/* <Link href="/about" passHref>
               <button className="px-6 py-3 bg-[#C4A35A] text-white font-medium rounded-md transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center">
               Learn More About Us
                   <svg
@@ -50,7 +50,7 @@ export default function About() {
                     />
                   </svg>
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

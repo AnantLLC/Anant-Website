@@ -14,7 +14,7 @@ export default function Schedule() {
         every step of the way.
       </h2>
   
-      <Link href="/contact" passHref>
+      <Link href="https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05" passHref>
         <button className="px-8 py-4 bg-[#C4A35A] text-white font-semibold rounded-md transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-lg shadow-lg">
           Schedule a Consultation
         </button>

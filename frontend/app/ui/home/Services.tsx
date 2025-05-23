@@ -55,7 +55,7 @@ const serviceItems = [
 
 export default function Services() {
   return (
-    <section className="relative flex flex-col items-center py-28 px-4 min-h-screen">
+    <section id='services' className="relative flex flex-col items-center py-28 px-4 min-h-screen">
       <h1 className="text-3xl font-bold text-gray-800 mb-12 relative">
         <span className="relative z-10">Our Services</span>
       </h1>

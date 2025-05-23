@@ -34,12 +34,12 @@ interface QuickLink {
   url: string;
 }
 const quickLinks: QuickLink[] = [
-  { title: "About Us", url: "#" },
-  { title: "Our Services", url: "#" },
-  { title: "Internships", url: "#" },
-  { title: "Meet Our Team", url: "#" },
-  { title: "Schedule A Call", url: "#" },
-  { title: "Contact Us", url: "#" },
+  { title: "About Us", url: "#about" },
+  { title: "Our Services", url: "#services" },
+  // { title: "Internships", url: "#" },
+  // { title: "Meet Our Team", url: "#" },
+  { title: "Schedule A Call", url: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05" },
+  // { title: "Contact Us", url: "#" },
 ];
 
 
