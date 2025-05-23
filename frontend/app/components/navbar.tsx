@@ -29,7 +29,8 @@ const navitems: NavItems[] = [
   // },
   {
     name: "Schedule a Call",
-    href: "#",
+    href: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05",
+    
   },
 ];
 
@@ -83,7 +84,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* <div className="flex justify-between items-center"> */}
           <Link href="/" className="flex justify-center items-center">
-            <div className="h-30 w-45 relative">
+            <div className="h-20 w-35 lg:h-30 lg:w-45 md:h-20 md:w-35 relative">
               <Image
                 src={logo}
                 alt="Anant Logo"
@@ -214,7 +215,7 @@ export default function Navbar() {
           ))}
 
           {/* Mobile search */}
-          <div className="px-3 py-2">
+          {/* <div className="px-3 py-2">
             <div className="relative rounded-md shadow-sm">
               <input
                 type="text"
@@ -237,7 +238,7 @@ export default function Navbar() {
                 </svg>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
