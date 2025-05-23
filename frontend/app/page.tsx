@@ -3,7 +3,7 @@ import Hero from "./ui/home/Hero";
 import Services from "./ui/home/Services";
 import About from "./ui/home/About";
 import Schedule from "./ui/home/Schedule";
-import LatestTip from "./ui/home/LatestTip";
+// import LatestTip from "./ui/home/LatestTip";
 import HowItWork from "./ui/home/HowItWork";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <Services />
       <Schedule />
       <HowItWork />
-      <LatestTip />
+      {/* <LatestTip /> */}
     </main>
   );
 }
