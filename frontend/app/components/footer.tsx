@@ -44,17 +44,18 @@ const quickLinks: QuickLink[] = [
 
 
 const footerLinks: QuickLink[] = [{
-  title: "Our Blog",
-  url: ""
+  title: "About Us",
+  url: "#about"
 }, 
 {
-  title: "Contact Us",
-  url: ""
+  title: "Our Services",
+  url: "#services"
 },
-{
-  title: "Sitemap",
-  url: ""
-}]
+// {
+//   title: "Sitemap",
+//   url: ""
+// }
+]
 
 
 export default function Footer() {
@@ -89,7 +90,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-4 flex flex-col items-center text-center">
-          <h3 className="mb-4 text-sm md:text-lg font-semibold">Quick Links</h3>
+          <h3 className="mb-4 mt-8 text-sm md:text-lg font-semibold">Quick Links</h3>
           <ul className="space-y-2">
             {quickLinks.map((link, index) => (
               <li key={index}>

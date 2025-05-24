@@ -34,7 +34,7 @@ export default function HowItWork() {
             <div className="bg-[#C4A35A] rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">1</div>
             <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">Introduction</h3>
             <p className="text-gray-600 text-center">
-              We begin with understanding your financial background and goals to establish a strong foundation.
+              We begin with understanding your financial background and goals to establish a strong foundation
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export default function HowItWork() {
             <div className="bg-[#C4A35A] rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">2</div>
             <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">Free Consultation</h3>
             <p className="text-gray-600 text-center">
-              Our experts provide a comprehensive consultation to analyze your financial situation.
+              Our experts provide a comprehensive consultation to analyze your financial situation
             </p>
           </div>
 
@@ -70,7 +70,7 @@ export default function HowItWork() {
             <div className="bg-[#C4A35A] rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">3</div>
             <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">Personalized Plan</h3>
             <p className="text-gray-600 text-center">
-              We develop a customized financial strategy tailored to your specific needs and objectives.
+              We develop a customized financial strategy tailored to your specific needs and objectives
             </p>
           </div>
 
@@ -88,7 +88,7 @@ export default function HowItWork() {
             <div className="bg-[#C4A35A] rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto">4</div>
             <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">Ongoing Support</h3>
             <p className="text-gray-600 text-center">
-              We provide continuous monitoring and adjustments to ensure your financial strategy remains aligned with your goals.
+              We provide continuous monitoring and adjustments to ensure your financial strategy remains aligned with your goals
             </p>
           </div>
         </div>

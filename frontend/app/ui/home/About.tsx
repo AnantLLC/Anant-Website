@@ -4,29 +4,38 @@ import Image from 'next/image'
 
 export default function About() {
   return (
-    <section id='about' className="relative py-28 px-4 md:px-12 bg-blue-50">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="relative py-28 px-4 md:px-12 bg-blue-50 overflow-hidden">
+      {/* Background split */}
+      <div className="absolute inset-0 z-0 flex">
+        <div className="w-1/3 bg-white"></div>
+        <div className="w-2/3 bg-blue-50"></div>
+      </div>
+
+      {/* Content container */}
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Image column */}
-          <div className="relative h-96 rounded-xl w-full">
-            
-            {/* Uncomment when you have actual images */}
+          {/* Image */}
+          <div className="relative h-96 rounded-xl w-full overflow-hidden">
             <Image 
-                  src={"/AboutUs.jpg"} // Replace with your image path
-                  alt={"About Us Image"}
-                  fill
-                  className="object-cover"
-                />
+              src="/AboutUs.jpg"
+              alt="About Us Image"
+              fill
+              className="object-cover"
+            />
           </div>
 
           {/* Content column */}
           <div className="order-1 md:order-2 flex flex-col space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-              About Us
+            <h2 className="text-md font-bold text-gray-700">
+              ABOUT US
+            </h2>
+
+            <h2 className="text-4xl md:text-4xl font-bold text-gray-800">
+              We&apos;re With You — <br/> Every Step of the Way<br/>
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed">
-              We are headquartered in Austin, TX, but we serve clients
+              <br/>We are headquartered in Austin, TX, but we serve clients
               nationwide. Whether you&apos;re looking for financial consulting,
               life insurance, or career opportunities in the financial services
               industry, we invite you to explore how Anant Financial Consulting

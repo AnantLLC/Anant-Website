@@ -19,13 +19,13 @@ export default function Hero() {
       </div>
       <div className="relative z-10 flex flex-col min-h-screen py-36 px-24">
         <div className="w-full py-36">
-          <h1 className="text-6xl font-bold text-white mb-2">
+          <h1 className="text-6xl lg:text-8xl font-bold text-white mb-2">
             Building Wealth
           </h1>
-          <h2 className="text-4xl font-semibold mb-2 text-white">
+          <h2 className="text-4xl lg:text-7xl font-semibold mb-2 text-white">
             Securing Futures
           </h2>
-          <p className="text-2xl text-gray-200 mb-4">Growing Together </p>
+          <p className="text-2xl lg:text-5xl text-gray-200 mb-4">Growing Together </p>
           <Link
             href="#about"
             className="flex items-center gap-2 text-2xl  py-3 text-white font-medium rounded-md"

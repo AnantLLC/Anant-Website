@@ -13,7 +13,7 @@ import mortgage from "../../images/homepage/mortgage.svg";
 const serviceItems = [
   {
     title: "Financial Planning",
-    description: "Strategic money management tailored to you.",
+    description: "Strategic money management tailored to you",
     icon: financial,
   },
   {
@@ -23,32 +23,32 @@ const serviceItems = [
   },
   {
     title: "Life Insurance",
-    description: "Protect your loved ones with flexible options.",
+    description: "Protect your loved ones with flexible options",
     icon: life,
   },
   {
     title: "Annuities",
-    description: "Create guaranteed income streams for retirement.",
+    description: "Create guaranteed income streams for retirement",
     icon: annuities,
   },
   {
     title: "Education Planning",
-    description: "Use 529 plans to fund your child's future.",
+    description: "Use 529 plans to fund your child's future",
     icon: education,
   },
   {
     title: "Estate Planning",
-    description: "Ensure your legacy is passed down smoothly.",
+    description: "Ensure your legacy is passed down smoothly",
     icon: estate,
   },
   {
     title: "Tax Diversification",
-    description: "Work with our partners to minimize your tax impact.",
+    description: "Work with our partners to minimize your tax impact",
     icon: tax,
   },
   {
     title: "Mortgage Protection",
-    description: "Protect your home and family with peace of mind.",
+    description: "Protect your home and family with peace of mind",
     icon: mortgage,
   },
 ];
@@ -71,7 +71,7 @@ export default function Services() {
                 <Image src={service.icon} alt={service.title} width={48} height={48} />
               </div>
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-white">{service.title}</h3>
+            <h3 className="text-2xl font-semibold mb-2 text-white">{service.title}</h3>
             <p className="text-white">{service.description}</p>
           </div>
         ))}
