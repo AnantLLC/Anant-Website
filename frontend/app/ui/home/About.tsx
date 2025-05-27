@@ -1,5 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
+import aboutImage from "../../images/AboutUs.jpg"
+
 // import Link from 'next/link'
 
 export default function About() {
@@ -17,7 +19,7 @@ export default function About() {
           {/* Image */}
           <div className="relative h-96 rounded-xl w-full overflow-hidden">
             <Image 
-              src="/AboutUs.jpg"
+              src={aboutImage}
               alt="About Us Image"
               fill
               className="object-cover"
