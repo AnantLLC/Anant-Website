@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 // Base URL for the site
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL
 
 if (!BASE_URL) {
     throw new Error("NEXT_PUBLIC_SITE_URL is not defined. Please set it in your environment variables.");
