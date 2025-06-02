@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend  # Set working dir to frontend/
+        working-directory: frontend  # 👈 All commands run in frontend/
 
     steps:
       - name: Checkout repository
@@ -32,7 +32,7 @@ jobs:
             echo "manager=yarn" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=yarn" >> $GITHUB_OUTPUT
-          elif [ -f "package.json" ]; then
+          elif [ -f "package-lock.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
             echo "runner=npx --no-install" >> $GITHUB_OUTPUT
@@ -46,13 +46,16 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache-dependency-path: |
+            frontend/package-lock.json
+            frontend/yarn.lock
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
 
-      - name: Cache Next.js build
+      - name: Cache Next.js build output
         uses: actions/cache@v4
         with:
           path: .next/cache
@@ -69,7 +72,7 @@ jobs:
       - name: Export static site
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
 
-      - name: Upload artifact
+      - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: frontend/out
@@ -80,7 +83,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
