@@ -2,7 +2,7 @@ name: Deploy frontend to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [dev]
   workflow_dispatch:
 
 permissions:
@@ -14,6 +14,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  NODE_ENV: development
+  NEXT_PUBLIC_SITE_URL: "https://anantllc.github.io/Anant-Website/"
 jobs:
   build:
     runs-on: ubuntu-latest
