@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Isaac Newton",
+    "role": "Senior Financial Consultant",
+    "image": "/static/img/Screenshot 2025-05-28 032102.png",
+    "summary": "Isaac has over 10 years of experience helping clients navigate estate planning and investment strategies. His mission is to simplify complex financial decisions for every family.",
+    "certifications": [
+      "TX: License #123456",
+      "CA: License #987654"
+    ],
+    "linkedin": "https://www.linkedin.com/in/isaac-newton",
+    "email": "isaac@example.com"
+  },
+  {
+    "name": "Albert Einstein",
+    "role": "Financial Physicist",
+    "image": "/static/img/Screenshot 2025-05-28 032102.png",
+    "summary": "Albert applies quantum logic to financial models and has won several awards for predictive analytics.",
+    "certifications": [
+      "NY: License #654321",
+      "NJ: License #192837"
+    ],
+    "linkedin": "https://www.linkedin.com/in/albert-einstein",
+    "email": "albert@example.com"
+  },
+  {
+    "name": "Marie Curie",
+    "role": "Physics Director",
+    "image": "/static/img/Screenshot 2025-05-28 032102.png",
+    "summary": "Marie leads our high-energy investment division and specializes in radioactive growth markets.",
+    "certifications": [
+      "IL: License #456789"
+    ],
+    "linkedin": "https://www.linkedin.com/in/marie-curie",
+    "email": "marie@example.com"
+  }
+]

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Our Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inria Sans', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .navbar {
+  background: #0e0e0e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-family: 'Inter', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #C4A35A;
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #0e0e0e;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    text-align: right;
+    padding: 1rem 2rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+    main h1{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+    main {
+      padding: 100px 1rem 2.5rem 1rem;
+      text-align: center;
+    }
+    main h2 {
+        position: relative;
+        display: inline-block; /* keeps the heading width tight to its content */
+        text-align: center;
+        margin-top: 0.5rem;
+        font-size: 1.4rem;
+    }
+
+    main h2::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -14px;
+        width: 2.6rem;
+        height: 3px;
+        background-color: #C4A35A;
+        border-radius: 2px;
+        transform: translateX(-50%);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 23px;
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      margin-top: 3rem;
+    }
+
+    .member {
+      background: transparent;
+      padding: 1rem;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 1rem;
+      position: relative;
+      border: 2px solid transparent;
+    }
+
+    .member:hover {
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: 1rem;
+      background-color: transparent;
+      transform: scale(1.02);
+    }
+
+    .member-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(to bottom, #FFFFFF, #C4A35A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
+      overflow: hidden;
+    }
+
+    .member-image img {
+      width: 75%;
+      height: 70%;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .role {
+      color: #666;
+    }
+
+    .socials {
+      margin-top: 0.5rem;
+    }
+
+    .member a i {
+      color: #C4A35A;
+      font-size: 1.2rem;
+      margin: 0 0.4rem;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .member a:hover i {
+      transform: scale(1.3);
+      color: #d6a85b;
+    }
+
+    .join-btn {
+      margin-top: 3rem;
+      background-color: #C7A25A;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .join-btn:hover {
+      background-color: #b8893e;
+    }
+
+    .popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.popup-content {
+  background: #1a1a1a;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  max-width: 700px;
+  width: 75%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.close-icon:hover {
+  transform: scale(1.2);
+  color: #C4A35A;
+}
+
+.popup-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.popup-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.popup-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.popup-image-bg {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #ffffff, #c4a35a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.popup-image-bg img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+}
+
+.popup-details {
+  flex: 1;
+  text-align: left;
+}
+
+.popup-details h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.popup-details p,
+.popup-details li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.popup-details ul {
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.popup-footer {
+  text-align: center;
+}
+
+#schedule-call-btn {
+  background-color: #C7A25A;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#schedule-call-btn:hover {
+  background-color: #a18345;
+}
+
+/* 🔧 Mobile Optimized View */
+@media (max-width: 600px) {
+  .popup-content {
+    padding: 1rem;
+    border-radius: 0.75rem;
+    max-height: 90vh;
+    width: 75%;
+  }
+
+  .popup-name {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+  }
+
+  .popup-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .popup-details {
+    text-align: center;
+  }
+
+  .popup-details h3 {
+    font-size: 1rem;
+  }
+
+  .popup-details p,
+  .popup-details li {
+    font-size: 0.85rem;
+  }
+
+  .popup-image-bg {
+    width: 120px;
+    height: 120px;
+  }
+
+  #schedule-call-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+
+    footer {
+      background: #0e0e0e;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar" class="fixed w-full z-50 bg-zinc-900 shadow-md py-2 transition-all duration-300">
+  <div class="flex items-center justify-between px-4 sm:px-6 lg:px-8">
+    <a href="/" class="flex justify-center items-center">
+      <div class="relative h-20 w-35 lg:h-30 lg:w-45 md:h-20 md:w-35">
+        <img loading="lazy" src="static/img/Screenshot 2025-06-04 170730.png" alt="Anant Logo" class="object-contain h-full w-full" />
+      </div>
+    </a>
+
+    <!-- Desktop navigation -->
+    <div id="desktop-menu" class="hidden lg:flex items-center space-x-6">
+      <a href="#about" class="font-medium text-white hover:text-[#C4A35A] transition-colors duration-200">About</a>
+      <a href="#services" class="font-medium text-white hover:text-[#C4A35A] transition-colors duration-200">Our Services</a>
+      <a href="https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05" target="_blank" class="font-medium text-white hover:text-[#C4A35A] transition-colors duration-200">Schedule a Call</a>
+      <a href="#meet_our_team" class="font-medium text-white hover:text-[#C4A35A] transition-colors duration-200">Meet Our Team</a>
+    </div>
+
+    <!-- Mobile menu toggle button -->
+    <div class="lg:hidden flex items-center">
+      <button id="mobile-menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200">
+        <span class="sr-only">Open main menu</span>
+        <!-- Hamburger icon -->
+        <svg id="menu-open-icon" class="h-6 w-6 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <!-- Close icon (hidden by default) -->
+        <svg id="menu-close-icon" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden shadow-lg bg-zinc-900">
+    <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-blue-600 transition-colors duration-200">About</a>
+    <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-blue-600 transition-colors duration-200">Our Services</a>
+    <a href="https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05" target="_blank" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-blue-600 transition-colors duration-200">Schedule a Call</a>
+  </div>
+</nav>
+
+  <main>
+    <section id="meet_our_team">
+        <h1>MEET OUR TEAM</h1>
+        <p class="subtitle">Our team of passionate professionals is committed to helping you grow wealth and secure your future.</p>
+        <h2>Financial Consultants</h2>
+        <div class="team" id="team-container"></div>
+        <button class="join-btn">JOIN OUR TEAM!</button>
+        </section>
+  </main>
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popup">
+  
+  <div class="popup-content">
+    <span class="close-icon" onclick="closePopup()">
+        <i class="fas fa-times"></i>
+    </span>
+    <h2 id="popup-name" class="popup-name">Name</h2>
+    
+    <div class="popup-body">
+        <div class="popup-image-wrapper">
+            <div class="popup-image-bg">
+            <img loading="lazy" id="popup-image" src="" alt="Member Image">
+            </div>
+        </div>
+        <div class="popup-details">
+            <p id="popup-details">Details about the member go here.</p>
+        </div>
+    </div>
+
+    <div class="popup-footer">
+        <button id="schedule-call-btn">Schedule a Call</button>
+    </div>
+  </div>
+</div>
+
+  <footer class="bg-zinc-900 p-16 mx-auto text-white">
+    <div class="grid lg:grid-cols-2 md:grid-cols-2">
+        <div class="flex flex-col items-center justify-center text-center p-8 px-6 lg:px-12">
+        <img loading="lazy" src="static/img/Screenshot 2025-06-04 170730.png" alt="anant llc logo" class="w-32" />
+        <h3 class="mb-4 max-w-2xs text-sm font-semibold text-center">
+            Your trusted partner in wealth management and financial solutions.
+        </h3>
+        <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/company/anant-llc1" class="text-gray-400 hover:text-white">
+            <!-- LinkedIn icon (use an <svg> or <i> here) -->
+            <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/anant_llc/" class="text-gray-400 hover:text-white">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:contact.anantllc@gmail.com" class="text-gray-400 hover:text-white">
+            <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        </div>
+
+        <div class="mt-4 flex flex-col items-center text-center">
+        <h3 class="mb-4 mt-8 text-sm md:text-lg font-semibold">Quick Links</h3>
+        <ul class="space-y-2">
+            <li><a href="#about" class="text-gray-400 text-sm hover:text-white">About Us</a></li>
+            <li><a href="#services" class="text-gray-400 text-sm hover:text-white">Our Services</a></li>
+            <li><a href="https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05" class="text-gray-400 text-sm hover:text-white">Schedule A Call</a></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="mt-12 border-t w-full justify-center gap-2 md:justify-between md:flex-row flex flex-col items-center border-gray-800 pt-8 text-sm text-gray-400">
+        <ul class="gap-6 flex md:order-none order-2">
+        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+        <li><a href="#services" class="text-gray-400 hover:text-white">Our Services</a></li>
+        </ul>
+        <p>© 2025 Anant LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const teamMembers = [
+    {
+        name: "Isaac Newton",
+        role: "Senior Financial Consultant",
+        image: "/static/img/Screenshot 2025-05-28 032102.png",
+        summary: "Isaac has over 10 years of experience helping clients navigate estate planning and investment strategies. His mission is to simplify complex financial decisions for every family.",
+        certifications: [
+        "TX: License #123456",
+        "CA: License #987654"
+        ]
+    },
+    {
+        name: "Albert Einstein",
+        role: "Financial Physicist",
+        image: "/static/img/Screenshot 2025-05-28 032102.png",
+        summary: "Albert applies quantum logic to financial models and has won several awards for predictive analytics.",
+        certifications: [
+        "NY: License #654321",
+        "NJ: License #192837"
+        ]
+    },
+    {
+        name: "Marie Curie",
+        role: "Physics Director",
+        image: "/static/img/Screenshot 2025-05-28 032102.png",
+        summary: "Marie leads our high-energy investment division and specializes in radioactive growth markets.",
+        certifications: [
+        "IL: License #456789"
+        ]
+    }
+    ];
+
+
+    const container = document.getElementById("team-container");
+    const popup = document.getElementById("popup");
+    const overlay = document.getElementById("overlay");
+    const popupName = document.getElementById("popup-name");
+    const popupDetails = document.getElementById("popup-details");
+    const popupImage = document.getElementById("popup-image");
+
+    // Fetch team data from external JSON
+    fetch('static/teamdetails.json')
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(teamMembers => {
+        // Render team members
+        teamMembers.forEach(member => {
+        const div = document.createElement("div");
+        div.className = "member";
+        div.innerHTML = `
+            <div class="member-image">
+            <img src="${member.image}" alt="${member.name}" />
+            </div>
+            <div class="name">${member.name}</div>
+            <div class="role">${member.role}</div>
+            <div class="socials">
+            <a href="${member.linkedin}" target="_blank" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:${member.email}" title="Send Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        `;
+
+        div.addEventListener("click", () => {
+            popupName.textContent = member.name;
+            popupDetails.innerHTML = `
+            <h3 style="margin-top: 0;">${member.role}</h3>
+            <p>${member.summary}</p>
+            <strong>State Certifications:</strong>
+            <ul>
+                ${member.certifications.map(cert => `<li>${cert}</li>`).join('')}
+            </ul>
+            `;
+            popupImage.src = member.image;
+            popupImage.alt = member.name;
+            popup.style.display = "flex";
+            overlay.style.display = "block";
+        });
+
+        div.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", e => e.stopPropagation());
+        });
+
+        container.appendChild(div);
+        });
+    })
+    .catch(error => {
+        console.error('Failed to load team data:', error);
+    });
+
+    function closePopup() {
+    popup.style.display = "none";
+    overlay.style.display = "none";
+    }
+
+  </script>
+  <script>
+    function toggleMenu() {
+        const nav = document.getElementById('nav-links');
+        nav.classList.toggle('show');
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.getElementById("navbar");
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuOpenIcon = document.getElementById("menu-open-icon");
+    const menuCloseIcon = document.getElementById("menu-close-icon");
+
+    // function updateNavbar() {
+    //   if (window.scrollY > 10 || mobileMenu.classList.contains("block")) {
+    //     navbar.classList.add("bg-zinc-900", "shadow-md", "py-2");
+    //     navbar.classList.remove("bg-transparent", "py-4");
+    //   } else {
+    //     navbar.classList.remove("bg-zinc-900", "shadow-md", "py-2");
+    //     navbar.classList.add("bg-transparent", "py-4");
+    //   }
+    // }
+
+    // updateNavbar();
+
+    // window.addEventListener("scroll", updateNavbar);
+    
+    // Always keep navbar styles fixed, no toggling on scroll
+    navbar.classList.add("bg-zinc-900", "shadow-md", "py-2");
+
+
+    mobileMenuBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("block");
+      if (isOpen) {
+        menuOpenIcon.classList.add("hidden");
+        menuCloseIcon.classList.remove("hidden");
+      } else {
+        menuOpenIcon.classList.remove("hidden");
+        menuCloseIcon.classList.add("hidden");
+      }
+    //   updateNavbar();
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (!href.startsWith("#")) return;
+
+            const target = document.querySelector(href);
+            if (target) {
+            e.preventDefault();
+
+            const navbarHeight = document.getElementById("navbar").offsetHeight;
+            const elementTop = target.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementTop - navbarHeight;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+
+            // Close mobile menu if open
+            if (mobileMenu.classList.contains("block")) {
+                mobileMenu.classList.remove("block");
+                menuOpenIcon.classList.remove("hidden");
+                menuCloseIcon.classList.add("hidden");
+            }
+            }
+        });
+        });
+  });
+  //(Escape button support) for pressing Esc key to leave popup
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        closePopup();
+    }
+  });
+
+</script>
+
+
+</body>
+</html>
