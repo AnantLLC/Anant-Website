@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 type MemberProps = {
@@ -18,7 +19,7 @@ const MemberCard: React.FC<MemberProps> = ({ member, onClick }) => {
       onClick={onClick}
     >
       <div className="w-48 h-48 mx-auto mb-4 rounded-full bg-gradient-to-b from-white to-[#C4A35A] flex items-center justify-center overflow-hidden">
-        <img src={member.image} alt={member.name} className="w-3/4 h-3/4 object-contain" />
+        <Image src={member.image} alt={member.name} className="w-3/4 h-3/4 object-contain" />
       </div>
       <div className="font-bold">{member.name}</div>
       <div className="text-gray-600">{member.role}</div>

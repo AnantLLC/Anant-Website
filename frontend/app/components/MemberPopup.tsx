@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 type Member = {
@@ -24,7 +25,7 @@ const MemberPopup: React.FC<Props> = ({ member, onClose }) => {
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex justify-center">
             <div className="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-b from-white to-[#C4A35A] flex items-center justify-center">
-              <img src={member.image} alt={member.name} className="w-3/4 h-3/4 object-contain" />
+              <Image src={member.image} alt={member.name} className="w-3/4 h-3/4 object-contain" />
             </div>
           </div>
           <div>
