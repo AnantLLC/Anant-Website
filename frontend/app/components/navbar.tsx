@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../images/logo/logo.svg";
+import { usePathname } from "next/navigation";
 
 
 interface NavItems {
@@ -37,7 +38,7 @@ const navitems: NavItems[] = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const location = usePathname()
   // Handle scroll event to change navbar appearance
   useEffect(() => {
     let ticking = false;
@@ -78,7 +79,7 @@ export default function Navbar() {
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled || mobileMenuOpen
           ? "bg-zinc-900 shadow-md py-2"
-          : "bg-transparent py-4"
+          : `${location === "/" ? "bg-transparent" : "bg-zinc-900"} py-4`
       }`}
     >
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8">
