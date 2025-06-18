@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import profile from "../../images/teams/Screenshot 2025-05-28 032102.png"
+import Link from "next/link";
 
 interface TeamMember {
   name: string;
@@ -96,7 +97,7 @@ export default function TeamPage() {
                 <div className="text-gray-600 mb-2">{member.role}</div>
                 <div className="flex justify-center space-x-3">
                   {member.linkedin && (
-                    <a
+                    <Link
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -104,16 +105,16 @@ export default function TeamPage() {
                       className="text-[#C4A35A] hover:text-[#d6a85b] hover:scale-125 transition-all duration-200"
                     >
                       <Linkedin size={20} />
-                    </a>
+                    </Link>
                   )}
                   {member.email && (
-                    <a
+                    <Link
                       href={`mailto:${member.email}`}
                       onClick={(e) => e.stopPropagation()}
                       className="text-[#C4A35A] hover:text-[#d6a85b] hover:scale-125 transition-all duration-200"
                     >
                       <Mail size={20} />
-                    </a>
+                    </Link>
                   )}
                 </div>
               </div>
