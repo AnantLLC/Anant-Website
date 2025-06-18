@@ -136,6 +136,7 @@ export default function TeamPage() {
               className="absolute top-4 right-4 text-white hover:text-[#C4A35A] hover:scale-125 transition-all duration-200 z-10"
             >
               {/* <X size={24} /> */}
+              x
             </button>
 
             <h2 className="text-2xl font-bold text-center mb-6 mt-6">
@@ -173,7 +174,7 @@ export default function TeamPage() {
               </div>
             </div>
 
-            <div className="text-center mt-6">
+            <div className="text-center gap-2 mt-6">
               <button className="bg-[#C7A25A] text-white px-6 py-3 rounded-lg hover:bg-[#a18345] transition-colors duration-300">
                 Schedule a Call
               </button>
