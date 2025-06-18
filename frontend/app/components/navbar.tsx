@@ -23,10 +23,10 @@ const navitems: NavItems[] = [
   //   name: "Internships",
   //   href: "#",
   // },
-  // {
-  //   name: "Meet Our Team",
-  //   href: "#",
-  // },
+  {
+    name: "Meet Our Team",
+    href: "/meet-our-team",
+  },
   {
     name: "Schedule a Call",
     href: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05",
