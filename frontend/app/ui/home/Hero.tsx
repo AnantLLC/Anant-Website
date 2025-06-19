@@ -17,7 +17,7 @@ export default function Hero() {
           quality={100}
         />
       </div>
-      <div className="relative z-10 flex flex-col min-h-screen py-36 px-24">
+      <div className="relative z-10 flex flex-col min-h-screen py-36 px-6 lg:px-24 ">
         <div className="w-full py-36">
           <h1 className="text-6xl lg:text-8xl font-bold text-white mb-2">
             Building Wealth
