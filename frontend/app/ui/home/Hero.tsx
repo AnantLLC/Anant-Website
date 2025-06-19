@@ -1,8 +1,10 @@
+"use client";
 import Image from 'next/image';
 import React from 'react'
 import heroAsset from '../../images/homepage/hero.jpg';
 import { BiDownArrow } from 'react-icons/bi';
 import Link from 'next/link';
+import { handleScrollToSection } from '../../lib/utils';
 
 export default function Hero() {
   return (
@@ -29,6 +31,7 @@ export default function Hero() {
           <Link
             href="#about"
             className="flex items-center gap-2 text-2xl  py-3 text-white font-medium rounded-md"
+            onClick={(e) => handleScrollToSection(e, "#about")}
           >
             <div>
               <BiDownArrow />
