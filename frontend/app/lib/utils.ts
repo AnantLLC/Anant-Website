@@ -11,7 +11,8 @@ export  function handleScrollToSection(e: React.MouseEvent<HTMLAnchorElement>, h
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-        const navbarHeight = 60;
+        const navbar = document.querySelector("nav");
+        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
