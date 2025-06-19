@@ -1,9 +1,12 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 // import cc from "../images/credit_card.jpg";
 import logo from "../images/logo/logo.svg";
+import { handleScrollToSection } from "../lib/utils";
+
 // interface SocialMediaInsight {
 //   title: string;
 //   description: string;
@@ -97,6 +100,7 @@ export default function Footer() {
                 <Link
                   href={link.url}
                   className="text-gray-400 text-sm hover:text-white"
+                  onClick={(e) => handleScrollToSection(e, link.url)}
                 >
                   {link.title}
                 </Link>
@@ -137,7 +141,11 @@ export default function Footer() {
         <ul className="gap-6 flex md:order-none order-2">
           {footerLinks.map((link, index) => (
             <li key={index}>
-              <Link href={link.url} className="text-gray-400 hover:text-white">
+              <Link 
+                href={link.url} 
+                className="text-gray-400 hover:text-white"
+                onClick={(e) => handleScrollToSection(e, link.url)}
+                >
                 {link.title}
               </Link>
             </li>
