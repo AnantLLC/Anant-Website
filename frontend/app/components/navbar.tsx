@@ -26,7 +26,7 @@ const navitems: NavItems[] = [
   // },
   {
     name: "Meet Our Team",
-    href: "/teams",
+    href: "/meet-our-team",
   },
   {
     name: "Schedule a Call",
