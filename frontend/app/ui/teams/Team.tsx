@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import profile from "../../images/teams/Screenshot 2025-05-28 032102.png"
+import yugamImage from "../../images/teams/yugam.png";
+import tarunImage from "../../images/teams/tarun.png";
+import coreyImage from "../../images/teams/corey.png";
 import Link from "next/link";
 
 interface TeamMember {
@@ -14,44 +17,74 @@ interface TeamMember {
   certifications: string[];
   linkedin?: string;
   email?: string;
+  scheduleLink?: string;
 }
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Isaac Newton",
-    role: "Senior Financial Consultant",
-    image: profile.src,
+    name: "Yugam Goyal",
+    role: "CEO & Co-Founder",
+    image: yugamImage.src,
     summary:
-      "Isaac has over 10 years of experience helping clients navigate estate planning and investment strategies. His mission is to simplify complex financial decisions for every family.",
+      "Yugam is a visionary CEO and co-founder dedicated to transforming financial services through innovative strategies and client-focused solutions. With deep industry expertise, he drives sustainable growth and empowers clients to achieve long-term financial success.",
     certifications: ["TX: License #123456", "CA: License #987654"],
-    linkedin: "https://www.linkedin.com/in/isaac-newton",
-    email: "isaac@example.com",
+    linkedin: "https://www.linkedin.com/in/yugam-goyal/",
+    email: "yug.goyal46@gmail.com",
+    scheduleLink: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam",
   },
   {
-    name: "Albert Einstein",
-    role: "Financial Physicist",
-    image: profile.src,
+    name: "Tarun Kumar",
+    role: "COO & Co-Founder",
+    image: tarunImage.src,
     summary:
-      "Albert applies quantum logic to financial models and has won several awards for predictive analytics.",
+      "Tarun oversees daily operations and implements strategic initiatives to ensure seamless service delivery and business growth. His leadership drives efficiency and operational excellence across the company.",
     certifications: ["NY: License #654321", "NJ: License #192837"],
-    linkedin: "https://www.linkedin.com/in/albert-einstein",
-    email: "albert@example.com",
+    linkedin: "https://www.linkedin.com/in/tarun-kumar-somisetty-531001228/",
+    email: "tarunsk2002@gmail.com",
+    scheduleLink: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam",
   },
   {
-    name: "Marie Curie",
-    role: "Physics Director",
-    image: profile.src,
+    name: "Corey Chiu",
+    role: "Vice President",
+    image: coreyImage.src,
     summary:
-      "Marie leads our high-energy investment division and specializes in radioactive growth markets.",
+      "As Vice President, Corey leads key financial initiatives and client relations, ensuring strong performance and innovative solutions that drive the company’s success.",
     certifications: ["IL: License #456789"],
-    linkedin: "https://www.linkedin.com/in/marie-curie",
-    email: "marie@example.com",
+    linkedin: "https://www.linkedin.com/in/corey-chiu-167294264/",
+    email: "coreychiu002@gmail.com",
+    scheduleLink: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam",
   },
 ];
 
 
 export default function TeamPage() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+    const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        closePopup();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closePopup();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
 
   const openPopup = (member: TeamMember) => {
     setSelectedMember(member);
@@ -62,17 +95,17 @@ export default function TeamPage() {
   };
 
   return (
-    <div className="bg-white py-36">
+    <div className="bg-white py-20">
       <main className="py-10 px-4 text-center">
         <section id="meet_our_team">
-          <h1 className="text-4xl font-bold mb-4 mt-4">MEET OUR TEAM</h1>
-          <p className="text-gray-600 mb-8 text-xl max-w-4xl mx-auto">
+          <h1 className="text-4xl font-semibold mb-4 mt-12">MEET OUR TEAM</h1>
+          <p className="text-gray-600 mb-6 text-xl max-w-4xl mx-auto">
             Our team of passionate professionals is committed to helping you
             grow wealth and secure your future.
           </p>
 
-          <div className="relative inline-block mb-12">
-            <h2 className="text-2xl font-semibold">Financial Consultants</h2>
+          <div className="relative inline-block mb-10">
+            <h2 className="text-xl font-semibold">Financial Consultants</h2>
             <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 w-10 h-1 bg-[#C4A35A] rounded"></div>
           </div>
 
@@ -84,12 +117,12 @@ export default function TeamPage() {
                 onClick={() => openPopup(member)}
                 className="bg-transparent p-4 cursor-pointer text-center rounded-2xl border-2 border-transparent hover:border-gray-200 hover:scale-105 transition-all duration-300"
               >
-                <div className="w-48 h-48 rounded-full bg-gradient-to-b from-white to-[#C4A35A] flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                <div className="w-48 h-48 rounded-full bg-gradient-to-b from-white to-[#C4A35A] flex items-end justify-center mx-auto mb-4 overflow-hidden">
                   <Image
                     src={member.image || "/placeholder.svg"}
                     alt={member.name}
-                    width={150}
-                    height={140}
+                    width={160}
+                    height={150}
                     className="object-cover"
                   />
                 </div>
@@ -121,8 +154,8 @@ export default function TeamPage() {
             ))}
           </div>
 
-          <button className="bg-[#C7A25A] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#b8893e] transition-colors duration-300">
-            JOIN OUR TEAM!
+          <button className="bg-[#C7A25A] text-white px-4 py-3 rounded-lg mb-0 mt-3 font-bold hover:bg-[#b8893e] transition-colors duration-300 cursor-pointer">
+            JOIN OUR TEAM
           </button>
         </section>
       </main>
@@ -130,10 +163,10 @@ export default function TeamPage() {
       {/* Popup Modal */}
       {selectedMember && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
-          <div className="bg-gray-900 text-white p-6 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+          <div ref={modalRef} className="bg-gray-900 text-white p-6 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
             <button
               onClick={closePopup}
-              className="absolute top-4 right-4 text-white hover:text-[#C4A35A] hover:scale-125 transition-all duration-200 z-10"
+              className="absolute top-4 right-4 text-white hover:text-[#C4A35A] hover:scale-125 transition-all duration-200 z-10 cursor-pointer"
             >
               {/* <X size={24} /> */}
               x
@@ -145,12 +178,12 @@ export default function TeamPage() {
 
             <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
               <div className="flex-shrink-0">
-                <div className="w-40 h-40 rounded-full bg-gradient-to-b from-white to-[#C4A35A] flex items-center justify-center overflow-hidden">
+                <div className="w-40 h-40 rounded-full bg-gradient-to-b from-white to-[#C4A35A] flex items-end justify-center overflow-hidden">
                   <Image
                     src={selectedMember.image || "/placeholder.svg"}
                     alt={selectedMember.name}
-                    width={120}
-                    height={120}
+                    width={160}
+                    height={160}
                     className="object-cover"
                   />
                 </div>
@@ -175,9 +208,16 @@ export default function TeamPage() {
             </div>
 
             <div className="text-center gap-2 mt-6">
-              <button className="bg-[#C7A25A] text-white px-6 py-3 rounded-lg hover:bg-[#a18345] transition-colors duration-300">
-                Schedule a Call
-              </button>
+              <Link
+                href={selectedMember.scheduleLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <button className="bg-[#C7A25A] text-white px-6 py-3 rounded-lg hover:bg-[#a18345] transition-colors duration-300 cursor-pointer">
+                  Schedule a Call
+                </button>
+              </Link>
             </div>
           </div>
         </div>
