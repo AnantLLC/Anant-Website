@@ -3,7 +3,6 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
-import profile from "../../images/teams/Screenshot 2025-05-28 032102.png"
 import yugamImage from "../../images/teams/yugam.png";
 import tarunImage from "../../images/teams/tarun.png";
 import coreyImage from "../../images/teams/corey.png";
