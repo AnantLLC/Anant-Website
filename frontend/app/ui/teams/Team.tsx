@@ -207,16 +207,20 @@ export default function TeamPage() {
             </div>
 
             <div className="text-center gap-2 mt-6">
-              <Link
-                href={selectedMember.scheduleLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <button className="bg-[#C7A25A] text-white px-6 py-3 rounded-lg hover:bg-[#a18345] transition-colors duration-300 cursor-pointer">
-                  Schedule a Call
-                </button>
-              </Link>
+              {selectedMember.scheduleLink && (
+                <div className="text-center gap-2 mt-6">
+                  <Link
+                    href={selectedMember.scheduleLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <button className="bg-[#C7A25A] text-white px-6 py-3 rounded-lg hover:bg-[#a18345] transition-colors duration-300 cursor-pointer">
+                      Schedule a Call
+                    </button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
