@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../images/logo/logo.svg";
+import { usePathname } from "next/navigation";
 
 
 interface NavItems {
@@ -13,20 +14,20 @@ interface NavItems {
 const navitems: NavItems[] = [
   {
     name: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     name: " Our Services",
-    href: "#services",
+    href: "/#services",
   },
   // {
   //   name: "Internships",
   //   href: "#",
   // },
-  // {
-  //   name: "Meet Our Team",
-  //   href: "#",
-  // },
+  {
+    name: "Meet Our Team",
+    href: "/meet-our-team",
+  },
   {
     name: "Schedule a Call",
     href: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05",
@@ -37,7 +38,7 @@ const navitems: NavItems[] = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const location = usePathname()
   // Handle scroll event to change navbar appearance
   useEffect(() => {
     let ticking = false;
@@ -78,7 +79,7 @@ export default function Navbar() {
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled || mobileMenuOpen
           ? "bg-zinc-900 shadow-md py-2"
-          : "bg-transparent py-4"
+          : `${location === "/" ? "bg-transparent" : "bg-zinc-900"} py-4`
       }`}
     >
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -156,7 +157,7 @@ export default function Navbar() {
               <span className="sr-only">Open main menu</span>
               {mobileMenuOpen ? (
                 <svg
-                  className="h-6 w-6"
+                  className="h-6 w-6 cursor-pointer"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -171,7 +172,7 @@ export default function Navbar() {
                 </svg>
               ) : (
                 <svg
-                  className="h-6 w-6"
+                  className="h-6 w-6 cursor-pointer"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
