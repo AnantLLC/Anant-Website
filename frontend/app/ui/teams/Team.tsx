@@ -196,12 +196,12 @@ export default function TeamPage() {
                   {selectedMember.summary}
                 </p>
                 <div>
-                  <strong className="text-white">State Certifications:</strong>
+                  {/* <strong className="text-white">State Certifications:</strong>
                   <ul className="list-disc list-inside mt-2 text-gray-300">
                     {selectedMember.certifications.map((cert, index) => (
                       <li key={index}>{cert}</li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </div>
