@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import yugamImage from "../../images/teams/yugam.png";
 import tarunImage from "../../images/teams/tarun.png";
-import coreyImage from "../../images/teams/corey.png";
+import coreyImage from "../../images/teams/Corey Chiu TMDSAS Headshot Photo.png";
 import Link from "next/link";
 
 interface TeamMember {
@@ -32,7 +32,7 @@ const teamMembers: TeamMember[] = [
     scheduleLink: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam",
   },
   {
-    name: "Tarun Kumar",
+    name: "Tarun Kumar Somisetty",
     role: "COO & Co-Founder",
     image: tarunImage.src,
     summary:
@@ -51,7 +51,7 @@ const teamMembers: TeamMember[] = [
     certifications: ["IL: License #456789"],
     linkedin: "https://www.linkedin.com/in/corey-chiu-167294264/",
     email: "coreychiu002@gmail.com",
-    scheduleLink: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam",
+    scheduleLink: "https://calendly.com/coreychiu002",
   },
 ];
 
