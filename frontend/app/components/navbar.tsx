@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../images/logo/logo.svg";
+import logo from "../images/logo/logo.png";
 
 
 interface NavItems {
