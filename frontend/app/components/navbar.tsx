@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../images/logo/logo.svg";
+import { handleScrollToSection } from "../lib/utils";
 
 
 interface NavItems {
@@ -61,16 +62,6 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  function handleScrollToSection(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
-    if (!href.startsWith("#")) return
-
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
 
 
   return (
