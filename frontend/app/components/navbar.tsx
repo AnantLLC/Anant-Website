@@ -29,8 +29,8 @@ const navitems: NavItems[] = [
   // },
   {
     name: "Schedule a Call",
-    href: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05",
-    
+    // href: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05", 
+    href: "/schedule-a-consultation",
   },
 ];
 
