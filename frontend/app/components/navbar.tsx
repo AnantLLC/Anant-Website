@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../images/logo/logo.svg";
+import { usePathname } from 'next/navigation';
 
 
 interface NavItems {
@@ -37,6 +38,9 @@ const navitems: NavItems[] = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
 
   // Handle scroll event to change navbar appearance
   useEffect(() => {
@@ -76,7 +80,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled || mobileMenuOpen
+        !isHomePage || scrolled || mobileMenuOpen
           ? "bg-zinc-900 shadow-md py-2"
           : "bg-transparent py-4"
       }`}
