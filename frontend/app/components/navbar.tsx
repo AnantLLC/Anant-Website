@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../images/logo/logo.svg";
 import { usePathname } from 'next/navigation';
+import logo from "../images/logo/logo.png";
 
 
 interface NavItems {
@@ -103,9 +103,10 @@ export default function Navbar() {
                 key={nav.name}
                 href={nav.href}
                 onClick={(e) => handleScrollToSection(e, nav.href)}
-                className={`font-medium text-white hover:text-[#C4A35A] transition-colors duration-200`}
+                className={`font-medium text-white hover:text-[#C4A35A] transition-colors duration-200 relative group`}
               >
                 {nav.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C4A35A] transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </div>
@@ -208,9 +209,10 @@ export default function Navbar() {
                 scrolled
                   ? "text-white hover:text-blue-600"
                   : "text-white hover:text-gray-200"
-              } transition-colors duration-200`}
+              } transition-colors duration-200 relative group`}
             >
               {nav.name}
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C4A35A] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
 
