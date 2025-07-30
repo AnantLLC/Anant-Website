@@ -51,7 +51,6 @@ export default function SchedulePage() {
     register,
     handleSubmit,
     control,
-    formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
       firstname: "",

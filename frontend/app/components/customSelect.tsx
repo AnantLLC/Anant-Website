@@ -49,9 +49,10 @@ const [isMounted, setIsMounted] = useState(false);
   };
 
   const defaultStyles: StylesConfig<Option, false> = {
-    control: (base, state) => ({ ...base, boxShadow: 'none', '&:hover': { borderColor: '#caa658' }, ...customStyles?.control }),
-    menu: (base) => ({ ...base, ...customStyles?.menu }),
-    option: (base, state) => ({ ...base, ...customStyles?.option }),
+    control: () => ({}),
+    menu: () => ({}),
+    option: () => ({}),
+    ...customStyles,
   };
 
 
@@ -72,12 +73,7 @@ const [isMounted, setIsMounted] = useState(false);
       placeholder={placeholder}
       className={`w-full ${className}`}
       classNames={defaultClassNames}
-      styles={{
-                    control: () => ({}),
-                    menu: () => ({}),
-                    option: () => ({}),
-      }}
-      
+      styles={defaultStyles}      
     />
   );
 };
