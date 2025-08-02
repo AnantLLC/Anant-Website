@@ -76,7 +76,6 @@ export default function SchedulePage() {
 
   const sendFormDataToGoogleSheet = async (payload: FormPayload): Promise<boolean> => {
     const googleScriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL;
-    console.log('Google Script URL:', googleScriptUrl);
     try {
       await fetch(googleScriptUrl!, {
         method: 'POST',
@@ -88,9 +87,9 @@ export default function SchedulePage() {
       });
 
       return true;
-      
+
     } catch (error) {
-      console.log('Error submitting form:', error);
+      alert(`Error submitting form: ${error}`);
       return false;
     }
   };
