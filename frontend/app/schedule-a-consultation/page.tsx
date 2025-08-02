@@ -20,6 +20,17 @@ type FormData = {
   service: Option | null;
 };
 
+type FormPayload = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  spouse: string | boolean;
+  kids: string;
+  service: string;
+};
+
+
 const serviceOptions: Option[] = [
   { value: "Financial_Planning", label: "Financial Planning" },
   { value: "Health_Insurance", label: "Health Insurance" },
@@ -63,11 +74,11 @@ export default function SchedulePage() {
     },
   });
 
-  const sendFormDataToGoogleSheet = async (payload: any): Promise<boolean> => {
+  const sendFormDataToGoogleSheet = async (payload: FormPayload): Promise<boolean> => {
     const googleScriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL;
     console.log('Google Script URL:', googleScriptUrl);
     try {
-      const response = await fetch(googleScriptUrl!, {
+      await fetch(googleScriptUrl!, {
         method: 'POST',
         mode: 'no-cors', 
         headers: {
@@ -77,9 +88,9 @@ export default function SchedulePage() {
       });
 
       return true;
-
-    } catch (err) {
-      console.log('Error submitting form:', err);
+      
+    } catch (error) {
+      console.log('Error submitting form:', error);
       return false;
     }
   };
@@ -108,7 +119,7 @@ export default function SchedulePage() {
     url.searchParams.append('email', email);
     url.searchParams.append('a1', note); // Goes into the Calendly textarea
 
-    const payload = {
+    const payload: FormPayload = {
       firstName,
       lastName,
       email,
@@ -126,8 +137,8 @@ export default function SchedulePage() {
       } else {
         alert("Submission failed");
       }
-    } catch (err) {
-      alert("Something went wrong");
+    } catch (error) {
+      alert(`Something went wrong: ${error}`);
     } finally {
       setIsLoading(false);
     }
