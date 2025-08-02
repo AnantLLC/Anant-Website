@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { inriaSans } from '../lib/fonts';
 import CustomSelect from "../components/customSelect";
 import HeaderComponent from "../components/HeaderComponent";
@@ -63,8 +63,31 @@ export default function SchedulePage() {
     },
   });
 
+  const sendFormDataToGoogleSheet = async (payload: any): Promise<boolean> => {
+    const googleScriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL;
+    console.log('Google Script URL:', googleScriptUrl);
+    try {
+      const response = await fetch(googleScriptUrl!, {
+        method: 'POST',
+        mode: 'no-cors', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      return true;
+
+    } catch (err) {
+      console.log('Error submitting form:', err);
+      return false;
+    }
+  };
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
     const firstName = data.firstname.trim();
     const lastName = data.lastname.trim();
     const fullName = `${firstName} ${lastName}`;
@@ -85,13 +108,35 @@ export default function SchedulePage() {
     url.searchParams.append('email', email);
     url.searchParams.append('a1', note); // Goes into the Calendly textarea
 
-    window.location.href = url.toString();
-  };
+    const payload = {
+      firstName,
+      lastName,
+      email,
+      phone: data.phone.trim(),
+      spouse,
+      kids,
+      service
+    };
 
+    try {
+      const success = await sendFormDataToGoogleSheet(payload);
+
+      if (success) {
+        window.location.href = url.toString();
+      } else {
+        alert("Submission failed");
+      }
+    } catch (err) {
+      alert("Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
+
+  };
 
   return (
     <main className={`min-h-screen flex items-center justify-center px-6 py-50 ${inriaSans.className} text-lg`}>
-      <section className="w-full max-w-3xl p-8">
+      <section className="w-full max-w-xl p-8">
 
         {/* Heading */}
         <HeaderComponent
@@ -205,9 +250,32 @@ export default function SchedulePage() {
           <div className="text-center pt-6">
             <button
               type="submit"
-              className="bg-[#C7A25A] text-white font-bold px-8 py-4 rounded-md z-10 hover:bg-[#b5914a] transition-colors duration-300 cursor-pointer"
+              disabled={isLoading}
+              className={`bg-[#C7A25A] text-white font-bold px-8 py-4 rounded-md z-10 hover:bg-[#b5914a] transition-colors duration-300 cursor-pointer flex items-center justify-self-center gap-2 ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
             >
-              GET IN TOUCH
+              {isLoading && (
+                <svg
+                  className="animate-spin h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+              )}
+              {isLoading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
