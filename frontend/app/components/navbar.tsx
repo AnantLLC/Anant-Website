@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from 'next/navigation';
 import logo from "../images/logo/logo.png";
 
 
@@ -29,14 +30,17 @@ const navitems: NavItems[] = [
   // },
   {
     name: "Schedule a Call",
-    href: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05",
-    
+    // href: "https://calendly.com/yug-goyal46/1-1-meet-with-yugam?month=2025-05", 
+    href: "/schedule-a-consultation",
   },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
 
   // Handle scroll event to change navbar appearance
   useEffect(() => {
@@ -76,7 +80,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled || mobileMenuOpen
+        !isHomePage || scrolled || mobileMenuOpen
           ? "bg-zinc-900 shadow-md py-2"
           : "bg-transparent py-4"
       }`}
